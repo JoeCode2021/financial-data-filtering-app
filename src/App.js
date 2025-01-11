@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Table from "./components/Table";
 import FilterControls from "./components/FilterControls";
-import SortControls from "./components/SortControls";
 
 const App = () => {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,13 +15,14 @@ const App = () => {
         const result = await response.json();
         const formattedData = result.map((item) => ({
           date: item.date,
-          revenue: `$${(item.revenue / 1e9).toFixed(1)}B`,
-          netIncome: `$${(item.netIncome / 1e9).toFixed(1)}B`,
-          grossProfit: `$${(item.grossProfit / 1e9).toFixed(1)}B`,
-          eps: `$${item.eps}`,
-          operatingIncome: `$${(item.operatingIncome / 1e9).toFixed(1)}B`,
+          revenue: item.revenue / 1e9, // Convert to billions
+          netIncome: item.netIncome / 1e9,
+          grossProfit: item.grossProfit / 1e9,
+          eps: item.eps,
+          operatingIncome: item.operatingIncome / 1e9,
         }));
         setData(formattedData);
+        setFilteredData(formattedData); // Initialize filtered data
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -30,12 +31,32 @@ const App = () => {
     fetchData();
   }, []);
 
+  const handleFilter = (filters) => {
+    const { startDate, endDate, minRevenue, maxRevenue, minNetIncome, maxNetIncome } = filters;
+
+    const filtered = data.filter((item) => {
+      const year = parseInt(item.date.split("-")[0], 10); // Extract the year
+      const revenue = item.revenue;
+      const netIncome = item.netIncome;
+
+      return (
+        (!startDate || year >= parseInt(startDate, 10)) &&
+        (!endDate || year <= parseInt(endDate, 10)) &&
+        revenue >= minRevenue &&
+        revenue <= maxRevenue &&
+        netIncome >= minNetIncome &&
+        netIncome <= maxNetIncome
+      );
+    });
+
+    setFilteredData(filtered);
+  };
+
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Financial Data</h1>
-      <FilterControls />
-      <SortControls />
-      <Table data={data} />
+      <FilterControls onFilter={handleFilter} />
+      <Table data={filteredData} />
     </div>
   );
 };
