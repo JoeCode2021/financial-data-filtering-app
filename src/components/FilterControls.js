@@ -20,23 +20,23 @@ const FilterControls = ({ onFilter }) => {
   };
 
   return (
-    <div className="mb-4">
+    <div className="md-full mb-4">
       <h2 className="text-lg font-semibold mb-2">Filters</h2>
-      <div className="flex flex-col gap-4">
-        <div className="flex gap-4">
+      <div className="md-full flex flex-col gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <input
-            type="text"
+            type="date"
             placeholder="Start Year (YYYY)"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
-            className="border border-gray-300 px-2 py-1"
+            className="p-2 border rounded"
           />
           <input
-            type="text"
+            type="date"
             placeholder="End Year (YYYY)"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
-            className="border border-gray-300 px-2 py-1"
+            className="p-2 border rounded"
           />
         </div>
         <div className="flex-gap-4">
@@ -45,7 +45,7 @@ const FilterControls = ({ onFilter }) => {
             placeholder="Min Revenue (in billions)"
             value={minRevenue}
             onChange={(e) => setMinRevenue(e.target.value)}
-            className="border border-gray-300 px-2 py-1"
+            className="p-2 border rounded"
           />
           <input
             type="number"
@@ -73,7 +73,7 @@ const FilterControls = ({ onFilter }) => {
         </div>
         <button
           onClick={handleFilter}
-          className="bg-red-500 text-white px-4 py-2 rounded"
+          className="bg-red-500 text-white px-2 py-4 rounded"
         >
           Apply Filters
         </button>

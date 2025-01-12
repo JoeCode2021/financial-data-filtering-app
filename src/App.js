@@ -74,11 +74,15 @@ const App = () => {
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Financial Data</h1>
+    <div className="flex flex-col">
+      <h1 className="bg-blue-500 text-white text-white text-center p-4 py-2 rounde">Financial Data</h1>
+      <main className="flex-1 overflow-y-auto">
       <FilterControls onFilter={handleFilter} />
       <SortControls onSort={handlSort}/>
+      <div>
       <Table data={sortedData} />
+      </div>
+      </main>  
     </div>
   );
 };
