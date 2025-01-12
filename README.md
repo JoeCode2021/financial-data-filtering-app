@@ -1,16 +1,16 @@
 Financial Data Filtering App
 Overview
-This app displays Apple Inc.'s annual income statements and lets users filter and sort financial data like revenue, net income, and earnings per share (EPS). It’s built with React and styled with TailwindCSS, and it works on both desktop and mobile.
+This app displays Apple Inc.'s annual income statements and lets users filter and sort financial data. It’s built with React and styled with TailwindCSS, and it works on both desktop and mobile.
 
 Features
 Table View: Shows key financial data.
 
 Filtering:
-Filter by date range (e.g., 2020 to 2024).
+Filter by date range.
 Filter by revenue range.
 Filter by net income range.
 Sorting:
-Sort by date, revenue, or net income (ascending/descending).
+Sort by date, revenue, or net income.
 Responsive Design: Works on desktop and mobile screens.
 
 How to Run
@@ -19,7 +19,7 @@ Install Node.js (v16 or higher).
 
 Steps
 Clone the project:
-git clone 
+git clone https://github.com/JoeCode2021/financial-data-filtering-app
 Go to the project folder:
 cd financial-data-filtering-app
 Install the dependencies:
