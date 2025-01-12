@@ -61,14 +61,14 @@ const FilterControls = ({ onFilter }) => {
             placeholder="Min Net Income (in billions)"
             value={minNetIncome}
             onChange={(e) => setMinNetIncome(e.target.value)}
-            className="border border-gray-300 px-2 py-1"
+            className="p-2 border rounded"
           />
           <input
             type="number"
             placeholder="Max Net Income (in billions)"
             value={maxNetIncome}
             onChange={(e) => setMaxNetIncome(e.target.value)}
-            className="border border-gray-300 px-2 py-1"
+            className="p-2 border rounded"
           />
         </div>
         <button
