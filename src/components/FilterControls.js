@@ -52,7 +52,7 @@ const FilterControls = ({ onFilter }) => {
             placeholder="Max Revenue (in billions)"
             value={maxRevenue}
             onChange={(e) => setMaxRevenue(e.target.value)}
-            className="border border-gray-300 px-2 py-1"
+            className="p-2 border rounded"
           />
         </div>
         <div className="flex-gap-4">
