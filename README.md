@@ -19,7 +19,7 @@ Install Node.js (v16 or higher).
 
 Steps
 Clone the project:
-git clone <repository-url>
+git clone 
 Go to the project folder:
 cd financial-data-filtering-app
 Install the dependencies:
@@ -28,7 +28,7 @@ pm install
 Add your API key:
 Create a .env file in the project folder.
 Add this line:
-REACT_APP_API_KEY=<your_api_key>
+REACT_APP_API_KEY=<
 Start the app:
 npm start
 Open http://localhost:3000 in your browser.
@@ -38,7 +38,7 @@ You can deploy this app on platforms like Vercel or Netlify. Make sure to add yo
 
 Live Demo
 
-Link to the app (Replace with the actual link once deployed)
+Link to the app (https://joesfinancialdatafilteringapp.netlify.app/)
 
 Credits
 
